@@ -105,3 +105,6 @@ Date:   Thu May 21 12:05:45 2020 +0300
  1 file changed, 0 insertions(+), 0 deletions(-)
 
 /// Huomasin tuos vikas tehtävässä, että git teki muutokset niin, että oisin muuttanut file1 -> file22 ja poistanut file2, vaikka muutin todellisuudessa file2 -> file22 ja poistin file1. Commitoin nämä muutokset git add . -komennolla, vaikka luultavasti mun ois pitänyt tehä git rm file1, git rm file2 ja commitoida tuo file22, jotta hommat ois menny nappiin.
+
+
+KEVYT EDIT
