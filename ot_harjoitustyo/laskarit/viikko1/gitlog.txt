@@ -1,0 +1,107 @@
+xeq@ubuntu:~/Documents/FSO2020/ot_viikko1/tiedostoja$ git log --stat | cat
+commit 501d50c2a61c848d0cce5b4095ec1e84644ed0c6
+Author: Amir Bardo <xequitep@gmail.com>
+Date:   Thu May 21 12:41:21 2020 +0300
+
+    file1 poistettu, file2 nimi muutettu file22
+
+ tiedostoja/file2             | 0
+ tiedostoja/{file1 => file22} | 0
+ 2 files changed, 0 insertions(+), 0 deletions(-)
+
+commit a42d0c52d0c6f6e11312b8900ca9643def3024c0
+Author: Amir Bardo <xequitep@gmail.com>
+Date:   Thu May 21 12:37:08 2020 +0300
+
+    f123 luotu
+
+ tiedostoja/file1 | 0
+ tiedostoja/file2 | 0
+ tiedostoja/file3 | 0
+ 3 files changed, 0 insertions(+), 0 deletions(-)
+
+commit 3af20c2a2fac5c1b047dd515f42dc390a7b89d07
+Author: Amir Bardo <xequitep@gmail.com>
+Date:   Thu May 21 12:30:09 2020 +0300
+
+    Ekaan ja kolmanteen lisätty tekstiä
+
+ eka.txt    | 1 +
+ kolmas.txt | 1 +
+ 2 files changed, 2 insertions(+)
+
+commit 7c220eb8832faf225ee908b73164adc181aebcec
+Author: Amir Bardo <xequitep@gmail.com>
+Date:   Thu May 21 12:24:45 2020 +0300
+
+    Aikasemmat muutokset oikeesti lisätty
+
+ tiedosto.txt => eka.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit 283860eab06a3abcd03dfbbe859d2965f2a20786
+Author: Amir Bardo <xequitep@gmail.com>
+Date:   Thu May 21 12:23:40 2020 +0300
+
+    toinen.txt poistettu ja tiedosto.txt nimi muutettu
+
+ toinen.txt | 1 -
+ 1 file changed, 1 deletion(-)
+
+commit fe61244e8d271ff0be93baa7c81e7934149b6631
+Author: Amir Bardo <xequitep@gmail.com>
+Date:   Thu May 21 12:20:18 2020 +0300
+
+    tiedosto.txt lisätty paljon kopioitua tekstiä
+
+ tiedosto.txt | 8 ++++++++
+ 1 file changed, 8 insertions(+)
+
+commit b03cd16ec813588f07141d4272ffd424b4ef3d90
+Author: Amir Bardo <xequitep@gmail.com>
+Date:   Thu May 21 12:15:50 2020 +0300
+
+    stuff-kansio luotu ja sen sisälle tiedosto
+
+ stuff/stuffitiedosto.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit 0313d6177e2090e10e8a918b75fe4acace2f58c1
+Author: Amir Bardo <xequitep@gmail.com>
+Date:   Thu May 21 12:14:45 2020 +0300
+
+    toista ja kolmatta muokattu
+
+ kolmas.txt | 1 +
+ toinen.txt | 1 +
+ 2 files changed, 2 insertions(+)
+
+commit b190bd2986a379910013f86538a34b9147053fff
+Author: Amir Bardo <xequitep@gmail.com>
+Date:   Thu May 21 12:13:31 2020 +0300
+
+    kolmas tiedosto lisätty
+
+ kolmas.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit f2889ccc607854ebe93e4d3123b1155f148918e7
+Author: Amir Bardo <xequitep@gmail.com>
+Date:   Thu May 21 12:08:45 2020 +0300
+
+    muutos ja lisäys
+
+ tiedosto.txt | 1 +
+ toinen.txt   | 0
+ 2 files changed, 1 insertion(+)
+
+commit d246365f9e89039af634e64fac18e7d3afab098b
+Author: Amir Bardo <xequitep@gmail.com>
+Date:   Thu May 21 12:05:45 2020 +0300
+
+    tiedosto.txt luotu
+
+ tiedosto.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+/// Huomasin tuos vikas tehtävässä, että git teki muutokset niin, että oisin muuttanut file1 -> file22 ja poistanut file2, vaikka muutin todellisuudessa file2 -> file22 ja poistin file1. Commitoin nämä muutokset git add . -komennolla, vaikka luultavasti mun ois pitänyt tehä git rm file1, git rm file2 ja commitoida tuo file22, jotta hommat ois menny nappiin.

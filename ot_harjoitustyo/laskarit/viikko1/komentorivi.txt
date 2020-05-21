@@ -1,0 +1,1 @@
+Mulla ei oo mitään oikeuksia tuonne SSH-palvelimelle. Sitä yhdistämistä ei tässä kurssissa ainakaan tähän mennessä olla käyty läpi. Olen aloitellut itekseni tätä kurssia, en ole HY opiskelija
