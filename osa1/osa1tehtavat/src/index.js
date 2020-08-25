@@ -11,6 +11,7 @@ const App = (props) => {
   const [good, setGood] = useState(0);
   const [neutral, setNeutral] = useState(0);
   const [bad, setBad] = useState(0);
+  let All = good + neutral + bad;
 
   return (
     <React.Fragment>
@@ -25,6 +26,10 @@ const App = (props) => {
         Good: <Display value={good} />
         Neutral: <Display value={neutral} />
         Bad: <Display value={bad} />
+        All: <Display value={All} />
+        Average:
+        <Display value={(good + bad * -1) / All} />
+        Positive (%): <Display value={(good / All) * 100} />
       </div>
     </React.Fragment>
   );
