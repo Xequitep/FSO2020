@@ -27,25 +27,25 @@ const Statistics = (props) => {
         </tbody>
         <tbody>
           <tr>
-            <td>Neutral: </td>{' '}
+            <td>Neutral: </td>
             <td>
-              <StatisticLine value={props.neutral} />{' '}
+              <StatisticLine value={props.neutral} />
             </td>
           </tr>
         </tbody>
         <tbody>
           <tr>
-            <td>Bad: </td>{' '}
+            <td>Bad: </td>
             <td>
-              <StatisticLine value={props.bad} />{' '}
+              <StatisticLine value={props.bad} />
             </td>
           </tr>
         </tbody>
         <tbody>
           <tr>
-            <td>All: </td>{' '}
+            <td>All: </td>
             <td>
-              <StatisticLine value={props.all} />{' '}
+              <StatisticLine value={props.all} />
             </td>
           </tr>
         </tbody>
@@ -55,15 +55,15 @@ const Statistics = (props) => {
             <td>
               <StatisticLine
                 value={(props.good + props.bad * -1) / props.all}
-              />{' '}
+              />
             </td>
           </tr>
         </tbody>
         <tbody>
           <tr>
-            <td>Positive (%): </td>{' '}
+            <td>Positive (%): </td>
             <td>
-              <StatisticLine value={(props.good / props.all) * 100} />{' '}
+              <StatisticLine value={(props.good / props.all) * 100} />
             </td>
           </tr>
         </tbody>
