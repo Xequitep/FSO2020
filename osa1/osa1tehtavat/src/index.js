@@ -16,17 +16,18 @@ const Statistics = (props) => {
   return (
     <div>
       <h2>Statistics</h2>
-      Good: <Display value={props.good} />
-      Neutral: <Display value={props.neutral} />
-      Bad: <Display value={props.bad} />
-      All: <Display value={props.all} />
-      Average: <Display value={(props.good + props.bad * -1) / props.all} />
-      Positive (%): <Display value={(props.good / props.all) * 100} />
+      Good: <StatisticLine value={props.good} />
+      Neutral: <StatisticLine value={props.neutral} />
+      Bad: <StatisticLine value={props.bad} />
+      All: <StatisticLine value={props.all} />
+      Average:{' '}
+      <StatisticLine value={(props.good + props.bad * -1) / props.all} />
+      Positive (%): <StatisticLine value={(props.good / props.all) * 100} />
     </div>
   );
 };
 
-const Display = (props) => <div>{props.value}</div>;
+const StatisticLine = (props) => <div>{props.value}</div>;
 
 const App = (props) => {
   // Buttonit ja niiden tila
