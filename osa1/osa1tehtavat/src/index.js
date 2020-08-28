@@ -16,13 +16,58 @@ const Statistics = (props) => {
   return (
     <div>
       <h2>Statistics</h2>
-      Good: <StatisticLine value={props.good} />
-      Neutral: <StatisticLine value={props.neutral} />
-      Bad: <StatisticLine value={props.bad} />
-      All: <StatisticLine value={props.all} />
-      Average:{' '}
-      <StatisticLine value={(props.good + props.bad * -1) / props.all} />
-      Positive (%): <StatisticLine value={(props.good / props.all) * 100} />
+      <table>
+        <tbody>
+          <tr>
+            <td>Good:</td>
+            <td>
+              <StatisticLine value={props.good} />
+            </td>
+          </tr>
+        </tbody>
+        <tbody>
+          <tr>
+            <td>Neutral: </td>{' '}
+            <td>
+              <StatisticLine value={props.neutral} />{' '}
+            </td>
+          </tr>
+        </tbody>
+        <tbody>
+          <tr>
+            <td>Bad: </td>{' '}
+            <td>
+              <StatisticLine value={props.bad} />{' '}
+            </td>
+          </tr>
+        </tbody>
+        <tbody>
+          <tr>
+            <td>All: </td>{' '}
+            <td>
+              <StatisticLine value={props.all} />{' '}
+            </td>
+          </tr>
+        </tbody>
+        <tbody>
+          <tr>
+            <td>Average: </td>
+            <td>
+              <StatisticLine
+                value={(props.good + props.bad * -1) / props.all}
+              />{' '}
+            </td>
+          </tr>
+        </tbody>
+        <tbody>
+          <tr>
+            <td>Positive (%): </td>{' '}
+            <td>
+              <StatisticLine value={(props.good / props.all) * 100} />{' '}
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   );
 };
@@ -57,4 +102,5 @@ const App = (props) => {
     </React.Fragment>
   );
 };
+
 ReactDOM.render(<App />, document.getElementById('root'));
