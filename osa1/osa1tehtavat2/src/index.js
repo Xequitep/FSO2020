@@ -5,21 +5,30 @@ const Button = (props) => (
   <button onClick={props.handleClick}>{props.text}</button>
 );
 
+const points = Array.apply(null, new Array(6)).map(Number.prototype.valueOf, 0);
+
 const App = (props) => {
   const [selected, setSelected] = useState(0);
+  const copy = points[selected];
+
+  console.log(copy);
+  console.log(points);
+  console.log(selected);
 
   return (
     <React.Fragment>
       <div>
-        <h2>Legendaarinen one-liner</h2>
+        <h2>Legendary one-liner</h2>
       </div>
       <div>{props.anecdotes[selected]}</div>
       <p></p>
+      <div>Has {copy} votes</div>
+      <Button handleClick={() => (points[selected] += 1)} text="Vote" />
       <Button
         handleClick={() =>
           setSelected(Math.floor(Math.random() * Math.floor(6)))
         }
-        text="Seuraava"
+        text="Next anecdote"
       />
     </React.Fragment>
   );
@@ -34,4 +43,7 @@ const anecdotes = [
   'Debugging is twice as hard as writing the code in the first place. Therefore, if you write the code as cleverly as possible, you are, by definition, not smart enough to debug it.',
 ];
 
-ReactDOM.render(<App anecdotes={anecdotes} />, document.getElementById('root'));
+ReactDOM.render(
+  <App anecdotes={anecdotes} points={points} />,
+  document.getElementById('root')
+);
