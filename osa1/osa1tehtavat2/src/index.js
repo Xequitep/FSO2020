@@ -7,10 +7,18 @@ const Button = (props) => (
 
 const points = Array.apply(null, new Array(6)).map(Number.prototype.valueOf, 0);
 
+const Votes = (props) => {
+  return (
+    <React.Fragment>
+      <div>Has {props.copy} votes</div>
+      <Button handleClick={() => (points[props.selected] += 1)} text="Vote" />
+    </React.Fragment>
+  );
+};
+
 const App = (props) => {
   const [selected, setSelected] = useState(0);
   const copy = points[selected];
-
   console.log(copy);
   console.log(points);
   console.log(selected);
@@ -22,8 +30,7 @@ const App = (props) => {
       </div>
       <div>{props.anecdotes[selected]}</div>
       <p></p>
-      <div>Has {copy} votes</div>
-      <Button handleClick={() => (points[selected] += 1)} text="Vote" />
+      <Votes copy={copy} selected={selected} />
       <Button
         handleClick={() =>
           setSelected(Math.floor(Math.random() * Math.floor(6)))
