@@ -11,6 +11,7 @@ const Votes = (props) => {
     Array.apply(null, new Array(6)).map(Number.prototype.valueOf, 0)
   );
   const copy = [...points][props.selected];
+  const max = points.indexOf(Math.max(...points));
   const copydata = update(points, {
     [props.selected]: {
       $apply: function (x) {
@@ -19,14 +20,15 @@ const Votes = (props) => {
     },
   });
 
-  console.log(points);
-  console.log(copy);
-  console.log(Array.isArray(points));
-  console.log(copydata);
   return (
     <React.Fragment>
       <div>Has {copy} votes</div>
       <Button handleClick={() => setPoints(copydata)} text="Vote" />
+
+      <div>
+        <h2>Anecdote with most votes: </h2>
+        {anecdotes[max]} has {Math.max(...points)} votes
+      </div>
     </React.Fragment>
   );
 };
@@ -38,7 +40,7 @@ const App = (props) => {
       <div>
         <h2>Legendary one-liner</h2>
       </div>
-      <div> {props.anecdotes[selected]}</div>
+      <div> {anecdotes[selected]}</div>
       <p></p>
       <Votes selected={selected} />
       <Button
