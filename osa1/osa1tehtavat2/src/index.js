@@ -1,36 +1,46 @@
 import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
+import update from 'immutability-helper';
 
 const Button = (props) => (
   <button onClick={props.handleClick}>{props.text}</button>
 );
 
-const points = Array.apply(null, new Array(6)).map(Number.prototype.valueOf, 0);
-
 const Votes = (props) => {
+  const [points, setPoints] = useState(
+    Array.apply(null, new Array(6)).map(Number.prototype.valueOf, 0)
+  );
+  const copy = [...points][props.selected];
+  const copydata = update(points, {
+    [props.selected]: {
+      $apply: function (x) {
+        return x + 1;
+      },
+    },
+  });
+
+  console.log(points);
+  console.log(copy);
+  console.log(Array.isArray(points));
+  console.log(copydata);
   return (
     <React.Fragment>
-      <div>Has {props.copy} votes</div>
-      <Button handleClick={() => (points[props.selected] += 1)} text="Vote" />
+      <div>Has {copy} votes</div>
+      <Button handleClick={() => setPoints(copydata)} text="Vote" />
     </React.Fragment>
   );
 };
 
 const App = (props) => {
   const [selected, setSelected] = useState(0);
-  const copy = points[selected];
-  console.log(copy);
-  console.log(points);
-  console.log(selected);
-
   return (
     <React.Fragment>
       <div>
         <h2>Legendary one-liner</h2>
       </div>
-      <div>{props.anecdotes[selected]}</div>
+      <div> {props.anecdotes[selected]}</div>
       <p></p>
-      <Votes copy={copy} selected={selected} />
+      <Votes selected={selected} />
       <Button
         handleClick={() =>
           setSelected(Math.floor(Math.random() * Math.floor(6)))
@@ -50,7 +60,4 @@ const anecdotes = [
   'Debugging is twice as hard as writing the code in the first place. Therefore, if you write the code as cleverly as possible, you are, by definition, not smart enough to debug it.',
 ];
 
-ReactDOM.render(
-  <App anecdotes={anecdotes} points={points} />,
-  document.getElementById('root')
-);
+ReactDOM.render(<App anecdotes={anecdotes} />, document.getElementById('root'));
