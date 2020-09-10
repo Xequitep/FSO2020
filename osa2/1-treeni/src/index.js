@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import App from './App';
 
 const notes = [
   {
@@ -22,19 +23,9 @@ const notes = [
   },
 ];
 
-const App = (props) => {
-  const { notes } = props;
-
-  return (
-    <div>
-      <h1>Notes</h1>
-      <ul>
-        <li>{notes[0].content}</li>
-        <li>{notes[1].content}</li>
-        <li>{notes[2].content}</li>
-      </ul>
-    </div>
-  );
-};
+const resultID = notes.map((note) => note.id);
+console.log('id', resultID);
+const resultCONTENT = notes.map((note) => note.content);
+console.log('Content', resultCONTENT);
 
 ReactDOM.render(<App notes={notes} />, document.getElementById('root'));
