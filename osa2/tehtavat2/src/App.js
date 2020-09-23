@@ -5,7 +5,7 @@ const App = (props) => {
   const [persons, setPersons] = useState(props.persons);
   const [newName, setNewName] = useState('Nimi tähän');
   const [newNumber, setNewNumber] = useState('Numero tähän');
-  const [newFilter, setNewFilter] = useState('Filtteröinti tässä');
+  const [newFilter, setNewFilter] = useState('');
 
   const resultCONTENT = persons.map((persons) => persons.content);
 
@@ -35,11 +35,9 @@ const App = (props) => {
     setNewFilter(event.target.value);
   };
 
-  const personsToShow = persons.filter((x) => x.content.includes(newFilter));
-  const filterPerson = (event) => {
-    event.preventDefault();
-    setNewFilter('');
-  };
+  const personsToShow = persons.filter((x) =>
+    x.content.toLowerCase().includes(newFilter.toLowerCase())
+  );
 
   return (
     <>
@@ -51,20 +49,10 @@ const App = (props) => {
           <p></p> <button type="submit">add</button>
         </form>
         <h2>Numbers</h2>
-        <form onSubmit={filterPerson}>
-          filter:
-          <input value={newFilter} onChange={handleFilterChange} />
-          <button onClick={() => console.log('personsToShow', personsToShow)}>
-            search
-          </button>
-        </form>
+        filter:
+        <input value={newFilter} onChange={handleFilterChange} />
         <ul>
           {personsToShow.map((persons) => (
-            <Person key={persons.id} persons={persons} />
-          ))}
-        </ul>
-        <ul>
-          {persons.map((persons) => (
             <Person key={persons.id} persons={persons} />
           ))}
         </ul>
