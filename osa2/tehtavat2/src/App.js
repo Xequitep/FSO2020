@@ -14,7 +14,9 @@ const App = (props) => {
       number: newNumber,
       id: persons.length + 1,
     };
-    if (props.resultCONTENT.includes(newName)) {
+    const resultCONTENT = persons.map((persons) => persons.content);
+    console.log('Content', resultCONTENT);
+    if (resultCONTENT.includes(newName)) {
       alert(`${newName} is already added to phonebook`);
     } else setPersons(persons.concat(personObject));
     setNewName('');

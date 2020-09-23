@@ -20,12 +20,4 @@ const persons = [
   },
 ];
 
-const resultID = persons.map((persons) => persons.id);
-console.log('id', resultID);
-const resultCONTENT = persons.map((persons) => persons.content);
-console.log('Content', resultCONTENT);
-
-ReactDOM.render(
-  <App persons={persons} resultCONTENT={resultCONTENT} />,
-  document.getElementById('root')
-);
+ReactDOM.render(<App persons={persons} />, document.getElementById('root'));
