@@ -5,17 +5,17 @@ const App = (props) => {
   const [persons, setPersons] = useState(props.persons);
   const [newName, setNewName] = useState('Nimi tähän');
   const [newNumber, setNewNumber] = useState('Numero tähän');
+  const [newFilter, setNewFilter] = useState('Filtteröinti tässä');
+
+  const resultCONTENT = persons.map((persons) => persons.content);
 
   const addName = (event) => {
     event.preventDefault();
-    console.log('button clicked', event.target);
     const personObject = {
       content: newName,
       number: newNumber,
       id: persons.length + 1,
     };
-    const resultCONTENT = persons.map((persons) => persons.content);
-    console.log('Content', resultCONTENT);
     if (resultCONTENT.includes(newName)) {
       alert(`${newName} is already added to phonebook`);
     } else setPersons(persons.concat(personObject));
@@ -24,13 +24,21 @@ const App = (props) => {
   };
 
   const handleNameChange = (event) => {
-    console.log('event.target.value', event.target.value);
     setNewName(event.target.value);
   };
 
   const handleNumberChange = (event) => {
-    console.log('event.target.value', event.target.value);
     setNewNumber(event.target.value);
+  };
+
+  const handleFilterChange = (event) => {
+    setNewFilter(event.target.value);
+  };
+
+  const personsToShow = persons.filter((x) => x.content.includes(newFilter));
+  const filterPerson = (event) => {
+    event.preventDefault();
+    setNewFilter('');
   };
 
   return (
@@ -43,6 +51,18 @@ const App = (props) => {
           <p></p> <button type="submit">add</button>
         </form>
         <h2>Numbers</h2>
+        <form onSubmit={filterPerson}>
+          filter:
+          <input value={newFilter} onChange={handleFilterChange} />
+          <button onClick={() => console.log('personsToShow', personsToShow)}>
+            search
+          </button>
+        </form>
+        <ul>
+          {personsToShow.map((persons) => (
+            <Person key={persons.id} persons={persons} />
+          ))}
+        </ul>
         <ul>
           {persons.map((persons) => (
             <Person key={persons.id} persons={persons} />
