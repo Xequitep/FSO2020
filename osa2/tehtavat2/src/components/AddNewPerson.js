@@ -18,11 +18,13 @@ const AddNewPerson = (props) => {
       number: props.newNumber,
       id: props.persons.length + 1,
     };
-    if (resultCONTENT.includes(props.newName)) {
-      alert(`${props.newName} is already added to phonebook`);
-    } else props.setPersons(props.persons.concat(personObject));
-    props.setNewName('');
-    props.setNewNumber('');
+    if (resultCONTENT.includes(personObject.content)) {
+      alert(`${personObject.content} is already added to phonebook.`);
+    } else {
+      props.setPersons(props.persons.concat(personObject));
+      props.setNewName('');
+      props.setNewNumber('');
+    }
   };
 
   return (
